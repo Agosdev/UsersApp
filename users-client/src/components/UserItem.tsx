@@ -28,6 +28,11 @@ function UserItem({ user }: Props) {
             )}
       </div>
       <div className="flex gap-x-2">
+            {user.role === Role.STUDENT ? (
+                <button  className="border-2 border-yellow-700 p-2 rounded-lg bg-zinc-800 block w-full my-2" onClick={() => setUserRole(Role.ADMIN)}>Make admin</button>
+            ) : (
+                <button  className="border-2 border-blue-700 p-2 rounded-lg bg-zinc-800 block w-full my-2" onClick={() => setUserRole(Role.STUDENT)}>Make student</button>
+            )}
         <button
           onClick={() => {
             if (!window.confirm("Are you sure you want to delete it?")) return;
@@ -36,13 +41,6 @@ function UserItem({ user }: Props) {
         >
           <IoTrash className="hover:text-red-500" />
         </button>
-    
-            {user.role === Role.USER ? (
-                <button  className="border-2 border-gray-700 p-2 rounded-lg bg-zinc-800 block w-full my-2" onClick={() => setUserRole(Role.ADMIN)}>Change to Admin</button>
-            ) : (
-                <button  className="border-2 border-gray-700 p-2 rounded-lg bg-zinc-800 block w-full my-2" onClick={() => setUserRole(Role.USER)}>Change to user</button>
-            )}
-
       </div>
     </div>
   );

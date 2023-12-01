@@ -1,30 +1,50 @@
+import axios from "axios";
 import { CreateUser, UpdateUser } from "../interface/user.interface";
+import { API } from "../constants/api.constants";
 
-const API = "http://localhost:3000/api";
+export const getUsersRequest = async () => {
+  try {
+    const response = await axios.get(`${API}/users`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-export const getUsersRequest = async () => fetch(`${API}/users`);
 
-export const createUserRequest = async (user: CreateUser) =>
-  fetch(`${API}/users`, {
-    method: "POST",
-    body: JSON.stringify(user),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+export const createUserRequest = async (user: CreateUser) => {
+  try {
+    const response = await axios.post(`${API}/users`, user);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-export const deleteUserRequest = async (id: string) =>
-  fetch(`${API}/users/${id}`, {
-    method: "DELETE",
-  });
 
-export const updateUserRequest = async (id: string, user: UpdateUser) =>
-  fetch(`${API}/users/${id}`, {
-    method: "PUT",
-    body: JSON.stringify(user),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+export const deleteUserRequest = async (id: string) => {
+  try {
+    const response = await axios.delete(`${API}/users/${id}`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-export const getUserRequest = async (id: string) => fetch(`${API}/users/${id}`);
+export const updateUserRequest = async (id: string, user: UpdateUser) => {
+  try {
+    const response = await axios.put(`${API}/users/${id}`, user);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+}
+ 
+export const getUserRequest = async (id: string) => {
+  try {
+    const response = await axios.get(`${API}/users/${id}`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+}

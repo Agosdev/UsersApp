@@ -7,7 +7,7 @@ function UserForm() {
     name: "",
     email: "",
     password: "",
-    role: Role.USER,
+    role: Role.STUDENT,
   });
   const { createUser } = useUsers();
 
@@ -58,7 +58,7 @@ function UserForm() {
                 role: e.target.value as Role,
               })
             }>
-            <option value={Role.USER}>USER</option>
+            <option value={Role.STUDENT}>STUDENT</option>
             <option value={Role.ADMIN}>ADMIN</option>
           </select>
 

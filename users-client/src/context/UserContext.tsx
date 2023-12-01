@@ -35,31 +35,29 @@ export const UserProvider: React.FC<Props> = ({ children }) => {
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
-    getUsersRequest()
-      .then((response) => response.json())
-      .then((data) => setUsers(data));
+    getUsers()
   }, []);
+
+  const getUsers = async() => {
+    const response = await getUsersRequest()
+    setUsers(response?.data)
+  }
 
   const createUser = async (user: CreateUser) => {
     const response = await createUserRequest(user);
-    const data = await response.json();
-    setUsers([...users, data]);
+    setUsers([...users, response?.data]);
   };
 
   const deleteUser = async (id: string) => {
     const response = await deleteUserRequest(id);
-    console.log(response)
-    if (response.status === 204) {
-      setUsers(users.filter((user) => user._id !== id));
-    }
+    console.log('response', response)
+    setUsers(users.filter((user) => user._id !== id));
   };
 
   const updateUser = async (id: string, user: UpdateUser) => {
     const response = await updateUserRequest(id, user);
-    const data = await response.json();
-    console.log(data)
     setUsers(
-      users.map((user) => (user._id === id ? { ...user, ...data } : user))
+      users.map((user) => (user._id === id ? { ...user, ...response?.data } : user))
     );
   };
 
