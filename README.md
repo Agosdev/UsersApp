@@ -7,15 +7,22 @@
 
 ## Set up
 
-* FE
-  - npm i
-  - npm run dev
-* BE
-  - npm i
-  - npm run start
+* If you want to test a demo with Netlify: 
 
- * After BE has start, try demo:
-  - https://65695205b6210d48bba65365--illustrious-sherbet-d86eb7.netlify.app/
+1. Download or clone this project in VSC
+2. Open your terminal 
+3. Go to /users-server folder
+4. Write command npm i and npm run start
+5. Now open this link: https://65695205b6210d48bba65365--illustrious-sherbet-d86eb7.netlify.app/
+
+* If you want to run this project locally then repeat the previous 1 and 2 mentioned steps and then:
+
+  * FE (at '/users-client')
+    - npm i
+    - npm run dev
+  * BE (at '/users-server')
+    - npm i
+    - npm run start
 
 ## Tech Stack
 
