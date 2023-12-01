@@ -43,10 +43,15 @@
     - Pay course with MercadoPago integration: CheckoutPRO API
 
 
-## DEMO
+## PREVIEW
 
-card payment demo
+card payment preview
 https://github.com/Agosdev/UsersApp/assets/67771188/5c30a92e-3b4f-4ead-9d51-e7f0a777b12f
+
+
+preview app
+https://github.com/Agosdev/UsersApp/assets/67771188/45c2c205-23b3-417c-a625-41b41d6babd0
+
 
 
 
