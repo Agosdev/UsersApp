@@ -14,6 +14,9 @@
   - npm i
   - npm run start
 
+ * After BE has start, try demo:
+  - https://65695205b6210d48bba65365--illustrious-sherbet-d86eb7.netlify.app/
+
 ## Tech Stack
 
 * React js + vite
