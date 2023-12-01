@@ -45,8 +45,6 @@
 
 ## DEMO
 
-https://github.com/Agosdev/UsersApp/assets/67771188/85d08bb0-2712-44c8-8353-87c7757c9edd
-
 card payment demo
 https://github.com/Agosdev/UsersApp/assets/67771188/5c30a92e-3b4f-4ead-9d51-e7f0a777b12f
 
