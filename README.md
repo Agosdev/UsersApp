@@ -2,7 +2,8 @@
   <a href="#key-features">Set up</a> •
   <a href="#key-features">Tech stack</a> •
   <a href="#how-to-use">Features</a> •
-  <a href="#how-to-use">DEMO</a> •
+  <a href="#how-to-use">PREVIEW</a> •
+  <a href="#how-to-use">Unit Testing</a> •
 </p>
 
 ## Set up
@@ -53,6 +54,12 @@ preview app
 https://github.com/Agosdev/UsersApp/assets/67771188/45c2c205-23b3-417c-a625-41b41d6babd0
 
 
+## Unit Testing:  JEST + React Testing Library
+
+Fail example
+<img width="1270" alt="Screen Shot 2023-12-04 at 13 41 15" src="https://github.com/Agosdev/UsersApp/assets/67771188/9b8e2f5e-eadd-4b3f-b3e7-e985d86a0746">
+Passed test example
+<img width="1252" alt="Screen Shot 2023-12-04 at 13 40 32" src="https://github.com/Agosdev/UsersApp/assets/67771188/f732a033-a5cd-4985-951a-e087c62bd44f">
 
 
   
