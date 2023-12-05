@@ -32,6 +32,13 @@
 * Nest js
 * MongoDB
 
+PLUS:
+
+- JEST + React Testing Library
+- Simple Docker image with project config
+- useFormik hook
+- Axios
+
 ## Features
 
 * Select a role profile
