@@ -7,6 +7,9 @@ import {
   updateUserRequest,
 } from "../api/users";
 import { Toast } from 'primereact/toast';
+import 'primereact/resources/themes/saga-green/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
 
 interface UserContextValue {
   users: User[];
@@ -47,6 +50,7 @@ export const UserProvider: React.FC<Props> = ({ children }) => {
       toast.current.show({
         severity: 'success',
         summary: 'Users could be listed',
+        detail: '',
         life: 3500,
       });
       setUsers(response?.data)
@@ -55,6 +59,7 @@ export const UserProvider: React.FC<Props> = ({ children }) => {
       toast.current.show({
         severity: 'error',
         summary: 'Users could not be listed',
+        detail: '',
         life: 3500,
       });
     }
@@ -69,6 +74,7 @@ export const UserProvider: React.FC<Props> = ({ children }) => {
       toast.current.show({
         severity: 'error',
         summary: 'User could not be created',
+        detail: '',
         life: 3500,
       });
     }
@@ -83,6 +89,7 @@ export const UserProvider: React.FC<Props> = ({ children }) => {
       toast.current.show({
         severity: 'error',
         summary: 'User could not be deleted',
+        detail: '',
         life: 3500,
       });
     }
@@ -99,6 +106,7 @@ export const UserProvider: React.FC<Props> = ({ children }) => {
       toast.current.show({
         severity: 'error',
         summary: 'User could not be updated',
+        detail: '',
         life: 3500,
       });
     }
