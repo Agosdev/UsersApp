@@ -27,7 +27,7 @@ export class UsersController {
     try {
       return await this.usersService.create(body);
     } catch (error) {
-      if (error.code === 11000) {
+      if (error.response.status === 490) {
         throw new ConflictException('User already exists');
       }
       throw error;

@@ -9,7 +9,7 @@ describe("MPBrick", () => {
     })
     
     test('should show the course info and pay button', () => {
-        const button = screen.getByText('Buy FullStack Course');
+        const button = screen.getByText('BuyFullStack Course');
         const title = screen.getByText('FullStack Course');
         const image = screen.getByAltText('course-image');
 

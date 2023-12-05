@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useRef, useState } from "react";
 import { CreateUser, User, UpdateUser } from "../interface/user.interface";
 import {
   createUserRequest,
@@ -6,6 +6,7 @@ import {
   getUsersRequest,
   updateUserRequest,
 } from "../api/users";
+import { Toast } from 'primereact/toast';
 
 interface UserContextValue {
   users: User[];
@@ -32,6 +33,8 @@ interface Props {
 }
 
 export const UserProvider: React.FC<Props> = ({ children }) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const toast: any = useRef(null);
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
@@ -40,30 +43,73 @@ export const UserProvider: React.FC<Props> = ({ children }) => {
 
   const getUsers = async() => {
     const response = await getUsersRequest()
-    setUsers(response?.data)
+    if(response?.status === 200) {
+      toast.current.show({
+        severity: 'success',
+        summary: 'Users could be listed',
+        life: 3500,
+      });
+      setUsers(response?.data)
+    }
+    else {
+      toast.current.show({
+        severity: 'error',
+        summary: 'Users could not be listed',
+        life: 3500,
+      });
+    }
   }
 
   const createUser = async (user: CreateUser) => {
     const response = await createUserRequest(user);
-    setUsers([...users, response?.data]);
+    if(response?.status === 201) {
+      setUsers([...users, response?.data]);
+    }
+    else {
+      toast.current.show({
+        severity: 'error',
+        summary: 'User could not be created',
+        life: 3500,
+      });
+    }
   };
 
   const deleteUser = async (id: string) => {
     const response = await deleteUserRequest(id);
-    console.log('response', response)
-    setUsers(users.filter((user) => user._id !== id));
+    if(response?.status === 204) {
+      setUsers(users.filter((user) => user._id !== id));
+    }
+    else {
+      toast.current.show({
+        severity: 'error',
+        summary: 'User could not be deleted',
+        life: 3500,
+      });
+    }
   };
 
   const updateUser = async (id: string, user: UpdateUser) => {
     const response = await updateUserRequest(id, user);
-    setUsers(
+    if(response?.status === 200) { 
+      setUsers(
       users.map((user) => (user._id === id ? { ...user, ...response?.data } : user))
     );
+    }
+    else {
+      toast.current.show({
+        severity: 'error',
+        summary: 'User could not be updated',
+        life: 3500,
+      });
+    }
   };
 
   return (
-    <UserContext.Provider value={{ users, createUser, deleteUser, updateUser }}>
-      {children}
-    </UserContext.Provider>
+    <>
+      <Toast ref={toast} />
+      <UserContext.Provider value={{ users, createUser, deleteUser, updateUser }}>
+        {children}
+      </UserContext.Provider>
+    </>
   );
 };

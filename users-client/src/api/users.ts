@@ -8,6 +8,7 @@ export const getUsersRequest = async () => {
     return response;
   } catch (error) {
     console.log(error);
+    return;
   }
 }
 
@@ -18,6 +19,7 @@ export const createUserRequest = async (user: CreateUser) => {
     return response;
   } catch (error) {
     console.log(error);
+    return;
   }
 };
 
@@ -28,6 +30,7 @@ export const deleteUserRequest = async (id: string) => {
     return response;
   } catch (error) {
     console.log(error);
+    return;
   }
 }
 
@@ -37,6 +40,7 @@ export const updateUserRequest = async (id: string, user: UpdateUser) => {
     return response;
   } catch (error) {
     console.log(error);
+    return;
   }
 }
  
@@ -46,5 +50,6 @@ export const getUserRequest = async (id: string) => {
     return response;
   } catch (error) {
     console.log(error);
+    return;
   }
 }
